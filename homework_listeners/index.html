@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- there's styles -->
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Listeners</title>
+</head>
+<body>
+    
+    <header class="container-fluid">
+        <div class="container">
+            <div class="title-header center-column-flex">
+                <h2 class="title">Практическая работа №7</h2>
+                <h3 class="subtitle">Напишите функции-обработчики для следующих событий: </h3>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="container section-click">
+            <h3>click</h3>
+            <div class="deck-for-cards">
+                <div class="card" id="one">
+                    <p class="title-card">
+                        1. По нажатию на кнопку button_1 пользователь получает одно из трех сообщений: "Кликни-ка еще разик", "Эта кнопка — самая замечательная кнопка в мире", "Ну чего раскликался тут?!". 
+                    </p>
+                    <button id="button_1">Click me</button>
+                </div>
+                <div class="card">
+                    <p class="title-card">2. По нажатию на ссылку вывести пользователю сообщение: "И куда это вы собрались?".</p>
+                    <a href="" id="click_link">Нажми на ссылку</a>
+                </div>
+                <div class="card">
+                    <p class="title-card">
+                        3. По нажатию на картинку image_1 изображение должно случайным образом меняться на одно из пяти. 
+                    </p>
+                    <div class="card-image">
+                        <img src="img/0.jpg" onclick="changeImg()">
+                    </div>
+                </div>
+                <div class="card">
+                    <p class="title-card">
+                        4. Написать функцию, которая по нажатию на кнопку генерировала бы случайную цифру от 0 до 5 в сообщении: "Ваша случайная цифра: n" 
+                    </p>
+                    <button onclick="getRandomInt()">Получить случайное число</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container section-click">
+            <h3>mousover</h3>
+            <div class="deck-for-cards">
+                <div class="card">
+                    <p class="title-card">
+                        5. При наведении курсора мыши на картинку изображение должно меняться на другое.
+                    </p>
+                    <div class="card-image">
+                        <img src="img/0.jpg" onmouseover="changeImgMouserover()">
+                    </div>
+                </div>
+                <div class="card">
+                    <p class="title-card">6. При наведении курсора мыши на кнопку должно выдаваться некоторое сообщение.</p>
+                    <button id="btnWithHiddenText">Наведи</button>
+                    <p class="hidden-text" id="hidden_text">Некоторое сообщение</p>
+                </div>
+                <div class="card">
+                    <p class="title-card">7. При наведении курсора мыши на какой-либо элемент страницы меняется цвет фона документа (document.bgColor). </p>
+                    <button onclick="toggleColor()" id="colorToggle">Включить</button>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container section-click">
+            <h3>mouseout</h3>
+            <div class="deck-for-cards">
+                <div class="card">
+                    <p class="title-card">
+                        8. При наведении курсора мыши на картинку изображение должно меняться на другое, а когда курсор покинет область картинки, должно восстанавливаться прежнее изображение 
+                    </p>
+                    <div class="card-image">
+                        <img src="img/0.jpg" id="imgMouseout"">
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container section-click">
+            <h3>focus, blur, change</h3>
+            <div class="deck-for-cards">
+                <div class="card">
+                    <p class="title-card">
+                        9. При получении текстовым полем text_1 фокуса ввода в строке состояния должно выводиться сообщение: «Введите что-нибудь» 
+                    </p>
+                    <p class="title-card start">
+                        11. При потере текстовым полем text_1 фокуса ввода должно выводится сообщение: «Уже все ввели?» (blur)
+                    </p>
+                    <p class="title-card">
+                        12. При изменении значения в текстовом поле text_1 должно выводиться: «Быстро сделай все, как было!» (change)
+                    </p>
+                    <div class="inputs">
+                        <p>Выберите один из вариантов</p>
+                        <label><input type="radio" name="radio-text" value="blur">Blur</label>
+                        <label><input type="radio" name="radio-text" value="change">Change</label>
+                    </div>
+                    <p class="hilight" id="sol9-output"></p>
+                    <input type="text" id="input_sol9">
+                </div>  
+                <div class="card">
+                    <p class="title-card">
+                        10. При получении полем checkbox_1 (флажок) фокуса в строке состояния должно выводиться сообщение: «Определитесь с выбором» 
+                    </p>
+                    <input type="checkbox" id="checkbox">
+                    <p class="hilight" id="sol10-output">Вывод</p>
+                </div>             
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container section-click">
+            <h3>select</h3>
+            <div class="deck-for-cards">
+                <div class="card">
+                    <p class="title-card">
+                        13. При выделении какого-либо элемента страницы должно появиться сообщение: «Выделять-то можно, копировать — нельзя!» 
+                    </p>
+                    <div class="container">
+                        <div class="alarm">
+                            <p>
+                                Для отслеживания выделения текста можно использовать "selectionchange" и внутри проверять когда пользователь отпустил клавишу мыши. "select" будет работать для input, textarea и для подобных тегов. Выделив любой текст сработает "selectionchange", выделив снизу textarea сработает "select". Ниже переключатель между ними
+                            </p>
+                        </div>
+                        <div class="inputs">
+                            <p>Выберите один из вариантов</p>
+                            <label><input type="radio" name="select" value="select">select</label>
+                            <label><input type="radio" name="select" value="selectionchange">selectionchange</label>
+                        </div>
+                    </div>
+                    <textarea>
+Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+                    </textarea> 
+                </div>        
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container section-click">
+            <h3>dbclick</h3>
+            <div class="deck-for-cards">
+                <div class="card">
+                    <p class="title-card">14. При двойном щелчке мыши по картинке она должна увеличиваться в размерах</p>
+                    <div class="card-image">
+                        <img src="img/0.jpg" id="imgDblClick"">
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container section-click">
+            <h3>resize</h3>
+            <div class="deck-for-cards">
+                <div class="card">
+                    <p class="title-card">15. Вывести пользователю предупреждение об ответственности за изменение размеров окна браузера.</p>
+                </div>        
+            </div>
+        </div>
+    </div>
+
+    <!-- there's scripts -->
+    <script src="scripts/index.js"></script>
+</body>
+</html>
